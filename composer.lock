@@ -993,6 +993,76 @@
             "time": "2016-12-18 15:42:34"
         },
         {
+            "name": "dunglas/action-bundle",
+            "version": "v0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dunglas/DunglasActionBundle.git",
+                "reference": "c587ba57babe8d0dad9aed0ed8b68ed3837d73a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dunglas/DunglasActionBundle/zipball/c587ba57babe8d0dad9aed0ed8b68ed3837d73a6",
+                "reference": "c587ba57babe8d0dad9aed0ed8b68ed3837d73a6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/config": "^2.8 || ^3.0",
+                "symfony/dependency-injection": "^2.8 || ^3.0",
+                "symfony/finder": "^2.8 || ^3.0",
+                "symfony/http-kernel": "^2.8 || ^3.0"
+            },
+            "conflict": {
+                "symfony/framework-bundle": "<2.8.5 || >3.0,<3.0.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.6 || ^5.0",
+                "sensio/framework-extra-bundle": "^3.0.10",
+                "symfony/browser-kit": "^2.8 || ^3.0",
+                "symfony/console": "^2.8 || ^3.0",
+                "symfony/css-selector": "^2.8 || ^3.0",
+                "symfony/expression-language": "^2.8 || ^3.0",
+                "symfony/framework-bundle": "^2.8 || ^3.0",
+                "twig/twig": "^1.28 || ^2.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dunglas\\ActionBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kévin Dunglas",
+                    "email": "dunglas@gmail.com",
+                    "homepage": "https://dunglas.fr"
+                }
+            ],
+            "description": "Symfony controllers, redesigned",
+            "homepage": "https://dunglas.fr/2016/01/dunglasactionbundle-symfony-controllers-redesigned/",
+            "keywords": [
+                "Autowiring",
+                "action",
+                "controllers",
+                "routing",
+                "symfony"
+            ],
+            "time": "2017-01-10 12:35:53"
+        },
+        {
             "name": "ezyang/htmlpurifier",
             "version": "v4.8.0",
             "source": {
@@ -1573,6 +1643,63 @@
                 "token"
             ],
             "time": "2016-12-05 07:27:31"
+        },
+        {
+            "name": "nelmio/cors-bundle",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nelmio/NelmioCorsBundle.git",
+                "reference": "58c2ae30bc52f61492bc3639f04ab322cb1d98e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nelmio/NelmioCorsBundle/zipball/58c2ae30bc52f61492bc3639f04ab322cb1d98e9",
+                "reference": "58c2ae30bc52f61492bc3639f04ab322cb1d98e9",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": "^2.7 || ^3.0"
+            },
+            "require-dev": {
+                "matthiasnoback/symfony-dependency-injection-test": "^0.7.6",
+                "mockery/mockery": "0.9.*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nelmio\\CorsBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nelmio",
+                    "homepage": "http://nelm.io"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/nelmio/NelmioCorsBundle/contributors"
+                }
+            ],
+            "description": "Adds CORS (Cross-Origin Resource Sharing) headers support in your Symfony2 application",
+            "keywords": [
+                "api",
+                "cors",
+                "crossdomain"
+            ],
+            "time": "2016-12-30 18:10:59"
         },
         {
             "name": "paragonie/random_compat",
