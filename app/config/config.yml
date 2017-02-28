@@ -109,16 +109,6 @@ lexik_jwt_authentication:
             enabled: true
             name:    bearer
 
-api_platform:
-    enable_nelmio_api_doc: true
-
-nelmio_api_doc:
-    default_sections_opened: true
-    sandbox:
-        authentication:
-            delivery: http
-            type: bearer
-
 nelmio_cors:
     defaults:
         max_age: 3600
