@@ -1,6 +1,6 @@
 <?php
 
-namespace DiffCompare\DiffAdapter;
+namespace Diff\DiffEngine;
 
 use Caxy\HtmlDiff\HtmlDiff;
 use Caxy\HtmlDiff\HtmlDiffConfig;

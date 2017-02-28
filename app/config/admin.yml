@@ -25,10 +25,13 @@ sonata_admin:
             User:
                 items:
                     - app.admin.user
+            Demos:
+                items:
+                    - app.admin.demo
 
         blocks:
             -
                 position: left
                 type: sonata.admin.block.admin_list
                 settings:
-                    groups: [ User  ]
+                    groups: [ User, Demos ]

@@ -7,3 +7,9 @@ services:
             - ~
             - AppBundle\Entity\User
             - ~
+
+    app.admin.demo:
+        class: AppBundle\Admin\DemoAdmin
+        arguments: [~, AppBundle\Entity\Demo, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Demo }

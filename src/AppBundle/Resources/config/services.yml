@@ -4,3 +4,11 @@ services:
         arguments: [ '@request_stack', '@fos_user.user_manager' ]
         tags:
             - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: onJWTCreated }
+
+    app.diff.caxy_php_htmldiff:
+        class: Diff\DiffEngine\CaxyPhpHtmlDiff
+
+    app.diff.dispatcher:
+        class: Diff\DiffDispatcher
+        arguments:
+            - ['@app.diff.caxy_php_htmldiff']
