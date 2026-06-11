@@ -1,6 +1,9 @@
-FROM php:7.4-fpm-alpine
+FROM php:7.4-fpm
 
-RUN apk add --no-cache nginx openssl oniguruma-dev
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        nginx \
+        libonig-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-install pdo pdo_mysql mbstring \
     && docker-php-ext-enable opcache
@@ -17,7 +20,7 @@ RUN composer install --no-scripts --no-dev --optimize-autoloader
 RUN mkdir -p var/cache var/logs var/sessions var/jwt \
     && chmod -R 777 var/
 
-COPY docker/nginx.conf /etc/nginx/http.d/default.conf
+COPY docker/nginx.conf /etc/nginx/sites-enabled/default
 COPY docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
