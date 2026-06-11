@@ -1,8 +1,9 @@
 FROM php:7.4-fpm-alpine
 
-RUN apk add --no-cache nginx openssl
+RUN apk add --no-cache nginx openssl oniguruma-dev
 
-RUN docker-php-ext-install pdo pdo_mysql opcache mbstring
+RUN docker-php-ext-install pdo pdo_mysql mbstring \
+    && docker-php-ext-enable opcache
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
