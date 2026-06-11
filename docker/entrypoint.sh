@@ -42,13 +42,7 @@ if [ ! -f /var/www/html/var/jwt/private.pem ]; then
 fi
 
 cd /var/www/html
-# Clear cache without warmup (Symfony 3.2 + PHP 7.4 has ReflectionClass serialization issues in warmup)
 php bin/console cache:clear --env=prod --no-debug --no-warmup 2>/dev/null || \
     rm -rf var/cache/prod
 
-php-fpm -D
-
-# Remove Debian's default site to prevent duplicate default_server conflict
-rm -f /etc/nginx/sites-enabled/default
-
-exec nginx -g 'daemon off;'
+exec apache2-foreground
