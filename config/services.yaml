@@ -2,12 +2,11 @@ services:
     _defaults:
         autowire: true
         autoconfigure: true
+        public: false
 
-    App\:
-        resource: '../src/'
-        exclude:
-            - '../src/Diff/'
-            - '../src/Kernel.php'
+    App\Controller\:
+        resource: '../src/Controller/'
+        tags: ['controller.service_arguments']
 
     Diff\DiffEngine\CaxyPhpHtmlDiff: ~
 

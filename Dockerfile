@@ -1,5 +1,8 @@
 FROM php:8.2-apache
 
+# Cache bust for Railway builds
+ARG CACHEBUST=1
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
         libonig-dev unzip \
     && rm -rf /var/lib/apt/lists/*
@@ -22,7 +25,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html
 COPY . .
 
-RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-scripts --no-dev --optimize-autoloader
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer update --no-dev --optimize-autoloader --no-scripts
 
 RUN mkdir -p var/cache var/log && chmod -R 777 var/
 
