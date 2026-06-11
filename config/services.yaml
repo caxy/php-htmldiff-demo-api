@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/Diff/'
+            - '../src/Kernel.php'
+
+    Diff\DiffEngine\CaxyPhpHtmlDiff: ~
+
+    Diff\DiffDispatcher:
+        arguments:
+            $engines:
+                - '@Diff\DiffEngine\CaxyPhpHtmlDiff'
