@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN docker-php-ext-install pdo pdo_mysql mbstring \
     && docker-php-ext-enable opcache \
-    && a2enmod rewrite
+    && a2dismod mpm_event mpm_worker 2>/dev/null || true \
+    && a2enmod mpm_prefork rewrite
 
 # Point document root at Symfony's public/ dir and allow .htaccess
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
@@ -23,7 +24,7 @@ WORKDIR /var/www/html
 
 COPY . .
 
-RUN composer install --no-scripts --no-dev --optimize-autoloader
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-scripts --no-dev --optimize-autoloader
 
 RUN mkdir -p var/cache var/log \
     && chmod -R 777 var/
