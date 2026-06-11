@@ -10,6 +10,12 @@ a2dismod mpm_event 2>/dev/null || true
 a2dismod mpm_worker 2>/dev/null || true
 a2enmod mpm_prefork 2>/dev/null || true
 
+# Railway injects PORT env var — make Apache listen on it
+if [ -n "$PORT" ]; then
+    sed -i "s/Listen 80/Listen $PORT/" /etc/apache2/ports.conf
+    sed -i "s/:80/:$PORT/" /etc/apache2/sites-enabled/000-default.conf
+fi
+
 # Symfony generates its cache lazily on first request
 rm -rf /var/www/html/var/cache/prod
 
