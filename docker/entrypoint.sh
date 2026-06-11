@@ -47,4 +47,8 @@ php bin/console cache:clear --env=prod --no-debug --no-warmup 2>/dev/null || \
     rm -rf var/cache/prod
 
 php-fpm -D
+
+# Remove Debian's default site to prevent duplicate default_server conflict
+rm -f /etc/nginx/sites-enabled/default
+
 exec nginx -g 'daemon off;'
